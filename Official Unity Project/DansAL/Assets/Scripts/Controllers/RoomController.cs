@@ -40,6 +40,8 @@ public class RoomController : EventReceiver  {
 		if (Input.GetKeyDown (KeyCode.L))
 			ExecuteEvents.Execute<IMessageTarget>(this.gameObject, null, (x, y)=>x.onEnterLightRoom());
 
+
+
 		//Update chance to blackout a room
 		if (blackoutCounter > 0)
 			blackoutCounter--;
@@ -81,6 +83,7 @@ public class RoomController : EventReceiver  {
 		rooms [r].turnOffLight ();
 		ExecuteEvents.Execute<IMessageTarget>(this.gameObject, null, (x, y)=>x.onRoomWentDark(r));
 
+
 	}
 
 	bool isRoomDark(int r){
@@ -118,6 +121,5 @@ public class RoomController : EventReceiver  {
 		Debug.Log ("Room " + r + " went dark!");
 
 	}
-
 
 }
