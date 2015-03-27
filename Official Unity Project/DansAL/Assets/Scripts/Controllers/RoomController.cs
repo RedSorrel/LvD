@@ -10,6 +10,9 @@ public class RoomController : EventReceiver  {
 	public int blackoutDelay; //seconds
 	public float blackoutChance;
 
+	public int playerRoom;
+	public int ghostRoom;
+
 	private int blackoutCounter;
 	private int rand;
 
@@ -113,6 +116,24 @@ public class RoomController : EventReceiver  {
 		return result;
 	}
 
+	private bool isPlayerAdjacentToGhost(){
+
+		bool result = false;
+
+		//Look for the GHOST room in the rooms connected to the player room
+		for (int i = 0; i < rooms[playerRoom].connectedRooms.Length; ++i)
+			if (rooms [playerRoom].connectedRooms [i] == ghostRoom)
+				result = true;
+
+		return result;
+	}
+
+	private bool isPlayerInGhostRoom(){
+
+		return (playerRoom == ghostRoom);
+
+	}
+
 
 	//Event handlers
 
@@ -121,5 +142,19 @@ public class RoomController : EventReceiver  {
 		Debug.Log ("Room " + r + " went dark!");
 
 	}
+
+	public override void onDoorClick(int r, Vector3 pos, Vector3 rot){
+
+		playerRoom = r;
+		Application.LoadLevel (rooms[r].scene);
+		//TODO: Make a scene transition
+		//Take the player to the next room
+		transform.parent.transform.position = pos;
+		//transform.FindChild ("Main Camera").transform.eulerAngles = rot;
+		ExecuteEvents.Execute<IMessageTarget>(this.gameObject, null, (x, y)=>x.onChangeRoom(r));
+
+
+	}
+
 
 }

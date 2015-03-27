@@ -5,6 +5,7 @@ using System.Collections;
 public class Room {
 
 	public string name;
+	public string scene;
 
 	//TODO: Make this private
 	public bool dark;
