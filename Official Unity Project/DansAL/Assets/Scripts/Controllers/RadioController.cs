@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 
 
@@ -157,6 +158,16 @@ public class RadioController : EventReceiver {
 		
 
 		edChannel.update ();
+	}
+
+	private void playDialogue(AudioClip clip){
+		//Play the specified dialogue clip
+		//TODO: Know information corresponding to subtitle data
+
+		ExecuteEvents.Execute<IMessageTarget>(this.gameObject, null, (x, y)=>x.onPlayDialogue(0));
+
+		edChannel.src.clip = clip;
+		edChannel.Play ();
 	}
 
 	//Event handlers
