@@ -4,7 +4,7 @@ using System.Collections;
 public class aimDot : MonoBehaviour {
 	//Vars for raycaster
 	public GameObject player;
-	public float trackerLength =5f; 
+	public float trackerLength = 5f; 
 	public Light playerFlashlight; 
 
 	public Texture aimerHover;
@@ -38,7 +38,9 @@ public class aimDot : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		
+
+
+
 		//always updates ray to looking foward. 
 		Vector3 fwd = transform.TransformDirection (Vector3.forward); 
 		

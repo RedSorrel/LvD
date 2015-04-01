@@ -1,0 +1,173 @@
+Initialize engine version: 5.0.0f4 (5b98b70ebeb9)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 10.1]
+    Renderer: Intel(R) HD Graphics Family (ID=0x126)
+    Vendor:   Intel
+    VRAM:     128 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Alex\Documents\GitHub\LvD\ExeBuild\LvD_3-25-2015_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Alex\Documents\GitHub\LvD\ExeBuild\LvD_3-25-2015_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Alex\Documents\GitHub\LvD\ExeBuild\LvD_3-25-2015_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Alex\Documents\GitHub\LvD\ExeBuild\LvD_3-25-2015_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Alex\Documents\GitHub\LvD\ExeBuild\LvD_3-25-2015_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Alex\Documents\GitHub\LvD\ExeBuild\LvD_3-25-2015_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Alex\Documents\GitHub\LvD\ExeBuild\LvD_3-25-2015_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Alex\Documents\GitHub\LvD\ExeBuild\LvD_3-25-2015_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.055 seconds
+desktop: 1600x900 60Hz; virtual: 3520x1080 at 0,-180
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\Alex\Documents\GitHub\LvD\ExeBuild\LvD_3-25-2015_Data\Managed\System.Core.dll (this message is harmless)
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 2cb8 -> priority: 1 
+  Thread -> id: 2e34 -> priority: 1 
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.058157 ms
+System memory in use before: 49.3 MB.
+System memory in use after: 49.4 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 791.
+Total: 0.282663 ms (FindLiveObjects: 0.039342 ms CreateObjectMapping: 0.042763 ms MarkObjects: 0.189868 ms  DeleteObjects: 0.009835 ms)
+
+Platform assembly: C:\Users\Alex\Documents\GitHub\LvD\ExeBuild\LvD_3-25-2015_Data\Managed\System.dll (this message is harmless)
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.249308 ms
+System memory in use before: 49.3 MB.
+System memory in use after: 48.7 MB.
+
+Unloading 116 unused Assets to reduce memory usage. Loaded Objects now: 381.
+Total: 0.399834 ms (FindLiveObjects: 0.029506 ms CreateObjectMapping: 0.017105 ms MarkObjects: 0.159933 ms  DeleteObjects: 0.192433 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.112039 ms
+System memory in use before: 49.3 MB.
+System memory in use after: 49.3 MB.
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 791.
+Total: 0.237762 ms (FindLiveObjects: 0.026513 ms CreateObjectMapping: 0.024374 ms MarkObjects: 0.166348 ms  DeleteObjects: 0.020098 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.246742 ms
+System memory in use before: 49.3 MB.
+System memory in use after: 48.7 MB.
+
+Unloading 116 unused Assets to reduce memory usage. Loaded Objects now: 380.
+Total: 0.398551 ms (FindLiveObjects: 0.027368 ms CreateObjectMapping: 0.017960 ms MarkObjects: 0.156940 ms  DeleteObjects: 0.195427 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.093651 ms
+System memory in use before: 49.2 MB.
+System memory in use after: 49.3 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 791.
+Total: 0.257006 ms (FindLiveObjects: 0.028651 ms CreateObjectMapping: 0.023947 ms MarkObjects: 0.172762 ms  DeleteObjects: 0.030361 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.286512 ms
+System memory in use before: 49.3 MB.
+System memory in use after: 48.7 MB.
+
+Unloading 116 unused Assets to reduce memory usage. Loaded Objects now: 381.
+Total: 0.461413 ms (FindLiveObjects: 0.030789 ms CreateObjectMapping: 0.022236 ms MarkObjects: 0.177894 ms  DeleteObjects: 0.230065 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.114177 ms
+System memory in use before: 49.2 MB.
+System memory in use after: 49.3 MB.
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 791.
+Total: 0.310887 ms (FindLiveObjects: 0.031217 ms CreateObjectMapping: 0.032072 ms MarkObjects: 0.221940 ms  DeleteObjects: 0.024802 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.304045 ms
+System memory in use before: 49.3 MB.
+System memory in use after: 48.7 MB.
+
+Unloading 116 unused Assets to reduce memory usage. Loaded Objects now: 380.
+Total: 0.484505 ms (FindLiveObjects: 0.027368 ms CreateObjectMapping: 0.023092 ms MarkObjects: 0.179177 ms  DeleteObjects: 0.254012 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.107762 ms
+System memory in use before: 49.2 MB.
+System memory in use after: 49.3 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 791.
+Total: 0.297631 ms (FindLiveObjects: 0.031644 ms CreateObjectMapping: 0.032072 ms MarkObjects: 0.207400 ms  DeleteObjects: 0.025230 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.295492 ms
+System memory in use before: 49.3 MB.
+System memory in use after: 48.7 MB.
+
+Unloading 116 unused Assets to reduce memory usage. Loaded Objects now: 381.
+Total: 0.493913 ms (FindLiveObjects: 0.030361 ms CreateObjectMapping: 0.022236 ms MarkObjects: 0.188157 ms  DeleteObjects: 0.252302 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.112894 ms
+System memory in use before: 49.3 MB.
+System memory in use after: 49.3 MB.
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 791.
+Total: 0.307894 ms (FindLiveObjects: 0.031644 ms CreateObjectMapping: 0.032927 ms MarkObjects: 0.219374 ms  DeleteObjects: 0.023519 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.297203 ms
+System memory in use before: 49.3 MB.
+System memory in use after: 48.7 MB.
+
+Unloading 116 unused Assets to reduce memory usage. Loaded Objects now: 381.
+Total: 0.493485 ms (FindLiveObjects: 0.031217 ms CreateObjectMapping: 0.022664 ms MarkObjects: 0.198848 ms  DeleteObjects: 0.239900 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.111611 ms
+System memory in use before: 49.3 MB.
+System memory in use after: 49.3 MB.
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 791.
+Total: 0.287795 ms (FindLiveObjects: 0.029506 ms CreateObjectMapping: 0.032072 ms MarkObjects: 0.201414 ms  DeleteObjects: 0.023947 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.289078 ms
+System memory in use before: 49.3 MB.
+System memory in use after: 48.7 MB.
+
+Unloading 116 unused Assets to reduce memory usage. Loaded Objects now: 380.
+Total: 0.481084 ms (FindLiveObjects: 0.032499 ms CreateObjectMapping: 0.022664 ms MarkObjects: 0.182598 ms  DeleteObjects: 0.242039 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.095789 ms
+System memory in use before: 49.2 MB.
+System memory in use after: 49.3 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 791.
+Total: 0.257006 ms (FindLiveObjects: 0.025657 ms CreateObjectMapping: 0.022664 ms MarkObjects: 0.186447 ms  DeleteObjects: 0.021381 ms)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.297631 ms
+System memory in use before: 49.3 MB.
+System memory in use after: 48.7 MB.
+
+Unloading 116 unused Assets to reduce memory usage. Loaded Objects now: 381.
+Total: 0.467828 ms (FindLiveObjects: 0.029078 ms CreateObjectMapping: 0.022236 ms MarkObjects: 0.174900 ms  DeleteObjects: 0.240756 ms)
+
+Room 1 went dark!
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+RoomController:onRoomWentDark(Int32) (at C:\Users\Alex\Documents\GitHub\LvD\Official Unity Project\DansAL\Assets\Scripts\Controllers\RoomController.cs:142)
+<darkenRoom>c__AnonStorey0:<>m__4(IMessageTarget, BaseEventData) (at C:\Users\Alex\Documents\GitHub\LvD\Official Unity Project\DansAL\Assets\Scripts\Controllers\RoomController.cs:87)
+UnityEngine.EventSystems.ExecuteEvents:Execute(GameObject, BaseEventData, EventFunction`1) (at C:\buildslave\unity\build\Extensions\guisystem\UnityEngine.UI\EventSystem\ExecuteEvents.cs:269)
+RoomController:darkenRoom(Int32) (at C:\Users\Alex\Documents\GitHub\LvD\Official Unity Project\DansAL\Assets\Scripts\Controllers\RoomController.cs:87)
+RoomController:Update() (at C:\Users\Alex\Documents\GitHub\LvD\Official Unity Project\DansAL\Assets\Scripts\Controllers\RoomController.cs:66)
+ 
+(Filename: C:/Users/Alex/Documents/GitHub/LvD/Official Unity Project/DansAL/Assets/Scripts/Controllers/RoomController.cs Line: 142)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.111183 ms
+System memory in use before: 49.3 MB.
+System memory in use after: 49.3 MB.
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 791.
+Total: 0.293782 ms (FindLiveObjects: 0.031644 ms CreateObjectMapping: 0.032072 ms MarkObjects: 0.206118 ms  DeleteObjects: 0.023519 ms)
+

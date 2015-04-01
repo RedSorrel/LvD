@@ -29,6 +29,7 @@ public class RadioController : EventReceiver {
 	public RadioChannel blackoutChannel;
 	public RadioChannel edChannel;
 	public RadioChannel radarChannel;
+	public RadioChannel UIChannel;
 
 	public DialogueLoader dialogue;
 
@@ -42,7 +43,9 @@ public class RadioController : EventReceiver {
 
 	private bool isGivingIntroduction;
 	private int rambleCountdown;
+
 	private int radarRate;
+	private int radarCounter;
 
 	private int rand;	//Used to hold random numbers
 	
@@ -55,6 +58,8 @@ public class RadioController : EventReceiver {
 		isGivingIntroduction = true;
 		rambleCountdown = -1;
 
+		staticChannel.targetVolume = 0.2f;
+
 		radarRate = 40;
 
 	}
@@ -62,7 +67,7 @@ public class RadioController : EventReceiver {
 	// Update is called once per frame
 	void Update () {
 
-		//updateRadar ();
+		updateRadar ();
 		updateGHOST ();
 		updateDialogue ();
 
@@ -90,12 +95,54 @@ public class RadioController : EventReceiver {
 
 	void updateRadar(){
 		//Check for item proximity
-		if (radarRate >= 0)
-			radarRate--;
-		else {
-			radarChannel.src.time = 0;
-			radarChannel.Play ();
-			radarRate = 40;
+		float dist = findDistanceToNearestItem ();
+
+		if (dist <= 4.0f) {
+			//It's within grabbing distance!
+			radarRate = 30;
+			radarChannel.setTargetVolume (1.0f, 0.5f);
+			radarChannel.setTargetPitch (1.0f, 0.005f);
+
+		} else if (dist > 4.0f && dist <= 12.0f) {
+			//Item is close!
+			radarRate = 80;
+			radarChannel.setTargetVolume (0.8f, 0.5f);
+			radarChannel.setTargetPitch (0.9f, 0.005f);
+
+		} else if (dist > 12.0f && dist <= 18.0f) {
+			//Item is in the vicinity!
+			radarRate = 120;
+			radarChannel.setTargetVolume (0.75f, 0.5f);
+			radarChannel.setTargetPitch (0.85f, 0.005f);
+
+		} else if (dist < float.MaxValue) {
+			//There is an item in the room, but it's far away
+			radarRate = 180;
+			radarChannel.setTargetVolume (0.7f, 0.5f);
+			radarChannel.setTargetPitch (0.8f, 0.005f);
+		} else {
+			//No items in the room
+			radarRate = -1;
+			radarChannel.setTargetVolume (0.0f, 0.5f);
+			radarChannel.setTargetPitch (0.0f, 0.005f);
+
+		}
+
+		if (radarRate >= 0) {
+			//Only update if the radar is active
+			if (radarCounter >= 0){
+				//If we're still above the new rate, drop it down
+				if (radarCounter > radarRate)
+					radarCounter = radarRate;
+
+				radarCounter--;
+			}
+			else {
+				radarChannel.src.time = 0;
+				radarChannel.Play ();
+				radarCounter = radarRate;
+			}
+
 		}
 
 		radarChannel.update ();
@@ -170,6 +217,23 @@ public class RadioController : EventReceiver {
 		edChannel.Play ();
 	}
 
+	private float findDistanceToNearestItem(){
+		//For item radar, find the closest collectible
+
+		GameObject[] items = GameObject.FindGameObjectsWithTag ("Collectible");
+		float distance = float.MaxValue;
+		float currentDistance = float.MaxValue;
+
+		for (int i = 0; i < items.Length; ++i) {
+			currentDistance = Vector3.Distance (items[i].transform.position, this.transform.parent.position);
+			if (currentDistance < distance)
+				distance = currentDistance;
+		}
+
+		return distance;
+
+	}
+
 	//Event handlers
 
 	public override void onRoomWentDark(int r){
@@ -178,7 +242,7 @@ public class RadioController : EventReceiver {
 		blackoutChannel.Play ();
 
 		//Ed has a 20% chance of identifying the room
-		rand = Random.Range (0, 4);
+		rand = Random.Range (0, 2);
 		if (rand == 0 && !edChannel.src.isPlaying) {
 			//Play the clip associated with the room
 			edChannel.src.clip = dialogue.BlackoutClips[r];
@@ -210,9 +274,7 @@ public class RadioController : EventReceiver {
 		staticChannel.src.loop = true;
 		staticChannel.Play ();
 
-		ghostMusicChannel.setTargetVolume (0.5f, 0.005f);
-		ghostMusicChannel.src.loop = true;
-		ghostMusicChannel.Play ();
+
 	}
 
 	public override void onEnterLightRoom(){
@@ -229,6 +291,18 @@ public class RadioController : EventReceiver {
 		staticChannel.Play ();
 
 		ghostMusicChannel.setTargetVolume (0.0f, 0.05f);
+	}
+
+	public override void onAdjacentToGhost(){
+		//Turn on GHOST music
+		ghostMusicChannel.setTargetVolume (0.5f, 0.005f);
+		ghostMusicChannel.src.loop = true;
+		ghostMusicChannel.Play ();
+	}
+
+	public override void onItemClick(int id, int value){
+		UIChannel.Play ();
+
 	}
 
 }
