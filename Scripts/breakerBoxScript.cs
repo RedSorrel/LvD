@@ -11,6 +11,7 @@ public class breakerBoxScript : EventReceiver {
 
     public Canvas breakerBoxUI;
     GameObject powerStation;
+	GameObject player;
     Image Base;
 
     /*public Button entraceBay;
@@ -38,6 +39,8 @@ public class breakerBoxScript : EventReceiver {
 
         breakerBoxUI = breakerBoxUI.GetComponent<Canvas>();
         breakerBoxUI.enabled = true;
+
+		player = GameObject.Find ("Chief 1");
         
         Cursor.visible = true;
 
@@ -90,237 +93,21 @@ public class breakerBoxScript : EventReceiver {
 	
 	}
 
-    public void entraceBayMethod()
+    public void roomMethods(int r)
     {
-        powerButtons[0] = !powerButtons[0];
+        powerButtons[r] = !powerButtons[r];
 
-        selectedImages[0].enabled = !selectedImages[0].enabled;
-
-        Debug.Log("breakerBox hit");
+        selectedImages[r].enabled = !selectedImages[r].enabled;
     }
 
-    public void medLabMethod()
+    public void imageHilight(int r)
     {
-        powerButtons[1] = !powerButtons[1];
-
-		selectedImages[1].enabled = !selectedImages[1].enabled;
+        highlightImages[r].enabled = true;
     }
 
-    public void restRoomMethod()
+    public void imageExit(int r)
     {
-        powerButtons[2] = !powerButtons[3];
-
-		selectedImages[2].enabled = !selectedImages[2].enabled;
-    }
-
-    public void commCenterMethod()
-    {
-        powerButtons[3] = !powerButtons[2];
-
-		selectedImages[3].enabled = !selectedImages[3].enabled;
-    }
-
-    public void breakRoomMethod()
-    {
-        powerButtons[4] = !powerButtons[4];
-
-		selectedImages[4].enabled = !selectedImages[4].enabled;
-    }
-
-    public void crewQuartersMethod()
-    {
-        powerButtons[5] = !powerButtons[5];
-
-		selectedImages[5].enabled = !selectedImages[5].enabled;
-    }
-
-    public void northHallwayMethod()
-    {
-        powerButtons[6] = !powerButtons[6];
-
-		selectedImages[6].enabled = !selectedImages[6].enabled;
-    }
-
-    public void materialsLabMethod()
-    {
-        powerButtons[7] = !powerButtons[7];
-
-		selectedImages[7].enabled = !selectedImages[7].enabled;
-    }
-
-    public void ghostLabMethod()
-    {
-        powerButtons[8] = !powerButtons[8];
-
-        selectedImages[8].enabled = !selectedImages[8].enabled;
-    }
-
-    public void bioLabMethod()
-    {
-        powerButtons[9] = !powerButtons[9];
-
-		selectedImages[9].enabled = !selectedImages[9].enabled;
-    }
-
-    public void eastShaftMethod()
-    {
-        powerButtons[10] = !powerButtons[10];
-
-		selectedImages[10].enabled = !selectedImages[10].enabled;
-    }
-
-    public void messHallMethod()
-    {
-        powerButtons[11] = !powerButtons[11];
-
-		selectedImages[11].enabled = !selectedImages[11].enabled;
-    }
-
-    public void kitchenMethod()
-    {
-        powerButtons[12] = !powerButtons[12];
-
-		selectedImages[12].enabled = !selectedImages[12].enabled;
-    }
-
-    public void entraceBayHighlight()
-    {
-        highlightImages[0].enabled = true;
-    }
-
-    public void medLabHighlight()
-    {
-        highlightImages[1].enabled = true;
-    }
-
-    public void restRooomHighlight()
-    {
-        highlightImages[2].enabled = true;
-    }
-
-    public void commCenterHighlight()
-    {
-        highlightImages[3].enabled = true;
-    }
-
-    public void breakRoomHighlight()
-    {
-        highlightImages[4].enabled = true;
-    }
-
-    public void crewQuarterssHighlight()
-    {
-        highlightImages[5].enabled = true;
-    }
-
-    public void northHallwayHighlight()
-    {
-        highlightImages[6].enabled = true;
-    }
-
-    public void materialsLabHighlight()
-    {
-        highlightImages[7].enabled = true;
-    }
-
-    public void ghostLabHighlight()
-    {
-        highlightImages[8].enabled = true;
-    }
-
-    public void bioLabHighlight()
-    {
-        highlightImages[9].enabled = true;
-    }
-
-    public void eastShaftHighlight()
-    {
-        highlightImages[10].enabled = true;
-    }
-
-    public void messHallHighlight()
-    {
-        highlightImages[11].enabled = true;
-    }
-
-    public void kitchenHighlight()
-    {
-        highlightImages[12].enabled = true;
-    }
-
-    public void sendPowerHighlight()
-    {
-        highlightImages[13].enabled = true;
-    }
-
-    public void entraceBayExit()
-    {
-        highlightImages[0].enabled = false;
-    }
-
-    public void medLabExit()
-    {
-        highlightImages[1].enabled = false;
-    }
-
-    public void restRoomExit()
-    {
-        highlightImages[2].enabled = false;
-    }
-
-    public void commCenterExit()
-    {
-        highlightImages[3].enabled = false;
-    }
-
-    public void breakRoomExit()
-    {
-        highlightImages[4].enabled = false;
-    }
-
-    public void crewQuartersExit()
-    {
-        highlightImages[5].enabled = false;
-    }
-
-    public void northHallwayExit()
-    {
-        highlightImages[6].enabled = false;
-    }
-
-    public void materialsLabExit()
-    {
-        highlightImages[7].enabled = false;
-    }
-
-    public void ghostLabExit()
-    {
-        highlightImages[8].enabled = false;
-    }
-
-    public void bioLabExit()
-    {
-        highlightImages[9].enabled = false;
-    }
-
-    public void eastShaftExit()
-    {
-        highlightImages[10].enabled = false;
-    }
-
-    public void messHallExit()
-    {
-        highlightImages[11].enabled = false;
-    }
-
-    public void kitchenExit()
-    {
-        highlightImages[12].enabled = false;
-    }
-
-    public void sendPowerExit()
-    {
-        highlightImages[13].enabled = false;
+        highlightImages[r].enabled = false;
     }
 
     public void sendPowerMethod()
@@ -346,12 +133,14 @@ public class breakerBoxScript : EventReceiver {
 		}
 
         breakerBoxUI.enabled = false;
+		(player.GetComponent ("FirstPersonController") as MonoBehaviour).enabled = true;
         Cursor.visible = false;
     }
 
 	public override void breakerBoxClick()
 	{
 		breakerBoxUI.enabled = true;
+		(player.GetComponent ("FirstPersonController") as MonoBehaviour).enabled = false;
         Cursor.visible = true;
 	}
 }
