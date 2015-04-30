@@ -10,8 +10,8 @@ public class gameOverScript : EventReceiver {
     public Button Yes;
     public Button No;
 
-    //public Camera playerCam;
-    //public Camera mainMenuCam;
+    public Camera playerCam;
+    public Camera mainMenuCam;
 
     GameObject dead;
 	GameObject player;
@@ -51,6 +51,10 @@ public class gameOverScript : EventReceiver {
             Destroy(gameObject);
         }
 
+        //so unity editor doesn't complain
+        mainMenuCam = null;
+        playerCam = null;
+
 		dead = GameObject.Find("GameController");
 		player = GameObject.Find ("Chief 1");
 		
@@ -58,10 +62,8 @@ public class gameOverScript : EventReceiver {
 
         gameOver = gameOver.GetComponent<Canvas>();
 
+        //default name
         levelName = "loadTools";
-
-        //playerCam.enabled = true;
-        //mainMenuCam.enabled = false;
 
 		gameOver.enabled = true;
     }
@@ -79,21 +81,21 @@ public class gameOverScript : EventReceiver {
         Application.LoadLevel(0);
         Destroy(player);
 
-        //mainMenuCam.enabled = true;
-        //playerCam.enabled = false; 
+        mainMenuCam.enabled = true;
+        playerCam.enabled = false; 
 
 		Destroy (this.gameObject);
     }
 
     public override void Died()
     {
-        //Debug.Log("hit gameover");
         gameOver.enabled = true;
         Cursor.visible = true;
 
 		(player.GetComponent ("FirstPersonController") as MonoBehaviour).enabled = false;
     }
 
+    //broadcast method
     public void levelNameing(string s)
     {
         levelName = s;
