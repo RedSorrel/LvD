@@ -2,13 +2,23 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class gameOverScript : MonoBehaviour {
+public class gameOverScript : EventReceiver {
+
+    ghostAI ghostAIOther;
 
     public Canvas gameOver;
     public Button Yes;
     public Button No;
 
+    public Camera playerCam;
+    public Camera mainMenuCam;
+
     GameObject dead;
+	GameObject player;
+
+    string levelName;
+
+	//string levelName;
 
 	// Use this for initialization
 	void Start () {
@@ -17,19 +27,19 @@ public class gameOverScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+	
+        //dead = GameObject.Find("GameController");
 
-        /*if (Application.loadedLevel == 3)
+        //ghostAIOther = dead.GetComponent<ghostAI>();
+
+        /*if (ghostAIOther.gotDead() == true)
         {
+            gameOver.enabled = true;
+			Time.timeScale = 0;
+        }
 
-            dead = GameObject.Find("ghostAIController");
-
-            ghostAI ghostAIOther = dead.GetComponent<ghostAI>();
-
-            if (ghostAIOther.gotDead() == true)
-            {
-                gameOver.enabled = true;
-            }
-        }*/
+		gameOver.enabled = true;*/
+		//Time.timeScale = 0;
 	}
 
     void Awake()
@@ -41,11 +51,53 @@ public class gameOverScript : MonoBehaviour {
             Destroy(gameObject);
         }
 
+        //so unity editor doesn't complain
+        mainMenuCam = null;
+        playerCam = null;
+
+		dead = GameObject.Find("GameController");
+		player = GameObject.Find ("Chief 1");
+		
+		ghostAIOther = dead.GetComponent<ghostAI>();
+
         gameOver = gameOver.GetComponent<Canvas>();
-        Yes = Yes.GetComponent<Button>();
-        No = No.GetComponent<Button>();
 
-        gameOver.enabled = false;
+        //default name
+        levelName = "loadTools";
 
+		gameOver.enabled = true;
+    }
+
+    public void Retry()
+    {
+        Destroy(player); 
+		Cursor.visible = false;
+        Application.LoadLevel(levelName);      
+        gameOver.enabled = false;   
+    }
+
+    public void mainMenu()
+    {
+        Application.LoadLevel(0);
+        Destroy(player);
+
+        mainMenuCam.enabled = true;
+        playerCam.enabled = false; 
+
+		Destroy (this.gameObject);
+    }
+
+    public override void Died()
+    {
+        gameOver.enabled = true;
+        Cursor.visible = true;
+
+		(player.GetComponent ("FirstPersonController") as MonoBehaviour).enabled = false;
+    }
+
+    //broadcast method
+    public void levelNameing(string s)
+    {
+        levelName = s;
     }
 }
